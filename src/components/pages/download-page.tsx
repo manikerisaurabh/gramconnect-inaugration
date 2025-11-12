@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function DownloadPage(): JSX.Element {
+export default function DownloadPage() {
     const [animated, setAnimated] = useState<boolean>(false)
 
     useEffect(() => {
@@ -141,7 +141,7 @@ export default function DownloadPage(): JSX.Element {
                         <p className="text-white/70 text-xs sm:text-sm md:text-base mt-5 md:mt-6 px-4">
                             किंवा सीधे App Store / Play Store शोधा{" "}
                             <span className="text-amber-400 font-bold text-sm sm:text-base md:text-lg">
-                                "Gram Connect"
+                                {`"Gram Connect"`}
                             </span>
                         </p>
                     </div>
