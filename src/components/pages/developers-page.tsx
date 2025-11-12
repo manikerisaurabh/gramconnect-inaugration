@@ -108,6 +108,7 @@ export default function DevelopersPage() {
                     <div className="relative max-w-3xl mx-auto text-center">
                         <div className="relative    p-10 md:p-14  ">
                             <div className="inline-flex items-center gap-3 md:gap-4 px-6 md:px-8 py-3 rounded-full  shadow-lg mb-8">
+                                <span className="text-2xl md:text-3xl">🚀</span>
                                 <p className="text-white font-bold text-lg md:text-xl">Developed By</p>
                             </div>
 
