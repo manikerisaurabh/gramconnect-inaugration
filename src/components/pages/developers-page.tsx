@@ -1,194 +1,149 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import goannyLogo from "../../../public/goanny-logo.png"
 
 export default function DevelopersPage() {
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
     const developers = [
         {
             name: "Dev Team",
             role: "Application Development",
             icon: "👨‍💻",
             description: "मोबाईल अनुप्रयोग विकास",
+            gradient: "from-blue-500 to-cyan-500",
         },
         {
             name: "Design Team",
             role: "UI/UX Design",
             icon: "🎨",
             description: "वापरकर्ता इंटरफेस व अनुभव डिझाइन",
+            gradient: "from-purple-500 to-pink-500",
         },
         {
             name: "Product Team",
             role: "Project Management",
             icon: "📊",
             description: "प्रकल्प नियोजन व व्यवस्थापन",
+            gradient: "from-orange-500 to-red-500",
         },
         {
             name: "QA Team",
             role: "Quality Assurance",
             icon: "✅",
             description: "गुणवत्ता परीक्षण व सुनिश्चितता",
+            gradient: "from-emerald-500 to-teal-500",
         },
     ]
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-emerald-50 p-4 md:p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
-            {/* Animated background decorations */}
-            <div className="absolute top-0 right-0 w-72 h-72 md:w-96 md:h-96 bg-emerald-600/10 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 md:w-80 md:h-80 bg-orange-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-emerald-700 to-emerald-900 relative overflow-hidden flex items-center justify-center px-4 md:px-8 lg:px-12">
+            {/* Background Glows */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-400/25 rounded-full blur-3xl animate-pulse" />
+            <div
+                className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-orange-500/25 rounded-full blur-3xl animate-pulse"
+                style={{ animationDelay: "1s" }}
+            />
+            <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/15 rounded-full blur-3xl animate-pulse"
+                style={{ animationDelay: "2s" }}
+            />
 
-            <div className="max-w-6xl w-full relative z-10">
-                {/* Header */}
-                <div className="text-center mb-10 md:mb-16">
-                    <div className="inline-flex items-center gap-3 px-6 md:px-8 py-3 bg-gradient-to-r from-emerald-600/10 to-amber-600/10 backdrop-blur-sm rounded-full border border-emerald-600/20 shadow-lg mb-6">
-                        <span className="text-xl md:text-2xl">👥</span>
-                        <p className="text-emerald-800 font-bold text-base md:text-lg tracking-wide">विकासक टीम</p>
-                    </div>
-
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-emerald-700 via-emerald-600 to-amber-600 bg-clip-text text-transparent mb-3 md:mb-4 leading-tight px-4">
+            <div className="relative z-10 max-w-6xl w-full mx-auto py-16 md:py-20 flex flex-col items-center text-center space-y-24 md:space-y-28 gap-8">
+                {/* 💼 Developer Team Section */}
+                <div className="w-full">
+                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12">
                         विकासक टीम
-                    </h1>
-
-                    <div className="flex items-center justify-center gap-3 mb-4">
-                        <div className="h-px w-12 md:w-16 bg-gradient-to-r from-transparent to-emerald-600/50"></div>
-                        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-light italic">Development Team Credits</p>
-                        <div className="h-px w-12 md:w-16 bg-gradient-to-l from-transparent to-emerald-600/50"></div>
-                    </div>
-
-                    <div className="flex justify-center gap-2 mt-4">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                        <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-                    </div>
-                </div>
-
-                {/* Developers Grid */}
-                <div className="grid sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8 mb-10 md:mb-16">
-                    {developers.map((dev, idx) => (
-                        <div
-                            key={idx}
-                            className="group"
-                        >
-                            <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 border-2 border-emerald-100 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:border-amber-300 h-full">
-                                <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
-                                    <div className="text-5xl sm:text-6xl md:text-7xl group-hover:scale-125 transition-transform duration-500 flex-shrink-0">
-                                        {dev.icon}
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-900 mb-2">{dev.name}</h3>
-                                        <p className="text-orange-600 font-bold text-sm sm:text-base md:text-lg mb-3">{dev.role}</p>
-                                        <div className="h-1 w-16 bg-gradient-to-r from-emerald-500 to-amber-500 rounded-full mb-3"></div>
-                                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg">{dev.description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Special Thanks Section */}
-                <div className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 border-2 border-amber-400/30 shadow-2xl mb-10 md:mb-16 text-center relative overflow-hidden">
-                    {/* Decorative background patterns */}
-                    <div className="absolute top-0 left-0 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
-                    <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
-
-                    <div className="relative z-10">
-                        <div className="inline-block mb-4 md:mb-6">
-                            <div className="text-4xl md:text-5xl mb-2">🙏</div>
-                        </div>
-
-                        <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-amber-400 mb-4 md:mb-6">विशेष आभार</h3>
-
-                        <div className="h-px bg-white/30 max-w-md mx-auto mb-4 md:mb-6"></div>
-
-                        <p className="text-white/95 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto px-2">
-                            या प्रकल्पाच्या यशामध्ये सहभागी झालेल्या सर्व हितधारक, सहयोगी आणि विकासकांचे मनःपूर्वक आभार.
-                            <br className="hidden sm:block" />
-                            <span className="font-bold text-white text-lg sm:text-xl md:text-2xl"> ग्राम कनेक्ट </span>
-                            हे यश सर्वांच्या एकत्र प्रयत्नांचे फलित आहे.
-                        </p>
-
-                        {/* Decorative dots */}
-                        <div className="flex justify-center gap-2 mt-6 md:mt-8">
-                            <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></div>
-                            <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                            <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Made with Love Section */}
-                <div className="text-center mb-8 md:mb-12">
-                    <div className="inline-block bg-gradient-to-br from-pink-50 to-red-50 rounded-3xl px-6 sm:px-8 md:px-12 py-6 md:py-8 border-2 border-pink-200/50 shadow-xl">
-                        <div className="text-4xl md:text-5xl mb-3 md:mb-4 animate-pulse">❤️</div>
-                        <p className="text-2xl sm:text-3xl md:text-4xl text-emerald-900 font-bold mb-2 md:mb-3">प्रेम व समर्पणाने बनवले</p>
-                        <div className="h-px bg-gradient-to-r from-transparent via-pink-300 to-transparent max-w-xs mx-auto mb-2 md:mb-3"></div>
-                        <p className="text-gray-600 text-base sm:text-lg md:text-xl font-light italic">Made with ❤️ and Dedication</p>
-                    </div>
-                </div>
-
-                {/* Goanny Logo - Highlighted Section */}
-                <div className="relative">
-                    {/* Premium card with glow effect */}
-                    <div className="relative group">
-                        {/* Outer glow */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/30 via-amber-500/30 to-orange-500/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 animate-pulse"></div>
-
-                        {/* Main card */}
-                        <div className="relative bg-gradient-to-br from-white via-amber-50/50 to-emerald-50/50 rounded-3xl p-6 sm:p-8 md:p-12 border-4 border-amber-300/60 shadow-2xl transform group-hover:scale-105 transition-all duration-500">
-                            {/* Corner decorations */}
-                            <div className="absolute top-3 left-3 w-8 h-8 md:w-12 md:h-12 border-t-4 border-l-4 border-emerald-600/30"></div>
-                            <div className="absolute top-3 right-3 w-8 h-8 md:w-12 md:h-12 border-t-4 border-r-4 border-emerald-600/30"></div>
-                            <div className="absolute bottom-3 left-3 w-8 h-8 md:w-12 md:h-12 border-b-4 border-l-4 border-orange-600/30"></div>
-                            <div className="absolute bottom-3 right-3 w-8 h-8 md:w-12 md:h-12 border-b-4 border-r-4 border-orange-600/30"></div>
-
-                            <div className="text-center">
-                                <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-emerald-500/10 to-amber-500/10 rounded-full border border-emerald-400/30 shadow-lg mb-6 md:mb-8">
-                                    <span className="text-xl md:text-2xl">🚀</span>
-                                    <p className="text-emerald-800 font-bold text-sm sm:text-base md:text-lg">Developed by</p>
-                                </div>
-
-                                <div className="flex flex-col items-center gap-4 md:gap-6">
-                                    {/* Logo container with spotlight effect */}
-                                    <div className="relative group/logo">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-amber-400/40 to-orange-500/40 rounded-2xl blur-xl group-hover/logo:blur-2xl transition-all duration-500"></div>
-                                        <div className="relative bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl border-2 border-amber-200 transform group-hover/logo:scale-110 transition-all duration-500">
-                                            <Image
-                                                src={goannyLogo}
-                                                alt="Goanny Logo"
-                                                width={200}
-                                                height={80}
-                                                className="w-32 sm:w-40 md:w-48 lg:w-56 h-auto object-contain drop-shadow-xl"
-                                                priority
-                                            />
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 px-4">
+                        {developers.map((dev, idx) => (
+                            <div
+                                key={idx}
+                                className={`transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                                    }`}
+                                style={{ transitionDelay: `${idx * 100}ms` }}
+                            >
+                                <div className="group relative h-full">
+                                    <div
+                                        className={`absolute -inset-2 bg-gradient-to-r ${dev.gradient} rounded-3xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500 group-hover:scale-105`}
+                                    ></div>
+                                    <div className="relative bg-white/15 backdrop-blur-2xl rounded-3xl p-6 md:p-8 border-2 border-white/30 hover:border-amber-300/50 shadow-2xl hover:shadow-[0_0_40px_rgba(251,191,36,0.3)] transition-all duration-500 transform group-hover:-translate-y-2 h-full">
+                                        <div className="flex items-start gap-5 md:gap-6">
+                                            <div className="text-5xl md:text-6xl lg:text-7xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 p-3 bg-white/10 rounded-2xl">
+                                                {dev.icon}
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{dev.name}</h3>
+                                                <p
+                                                    className={`text-lg md:text-xl font-semibold bg-gradient-to-r ${dev.gradient} bg-clip-text text-transparent mb-4`}
+                                                >
+                                                    {dev.role}
+                                                </p>
+                                                <div
+                                                    className={`h-1.5 w-16 bg-gradient-to-r ${dev.gradient} rounded-full mb-4 shadow-lg`}
+                                                ></div>
+                                                <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+                                                    {dev.description}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    {/* Company tagline */}
-                                    <div className="space-y-2">
-                                        <p className="text-emerald-800 font-bold text-lg sm:text-xl md:text-2xl">
-                                            Technology Partner
-                                        </p>
-                                        <div className="h-1 w-24 md:w-32 bg-gradient-to-r from-emerald-500 via-amber-500 to-orange-500 rounded-full mx-auto"></div>
-                                        <p className="text-gray-600 text-sm sm:text-base md:text-lg font-medium">
-                                            तंत्रज्ञान भागीदार
-                                        </p>
-                                    </div>
                                 </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-                                {/* Decorative sparkles around logo */}
-                                <div className="flex justify-center gap-3 md:gap-4 mt-6 md:mt-8">
-                                    <span className="text-2xl md:text-3xl animate-bounce" style={{ animationDelay: '0s' }}>✨</span>
-                                    <span className="text-2xl md:text-3xl animate-bounce" style={{ animationDelay: '0.2s' }}>⭐</span>
-                                    <span className="text-2xl md:text-3xl animate-bounce" style={{ animationDelay: '0.4s' }}>✨</span>
+                {/* 🚀 Highlight: Goanny Section */}
+                <div
+                    className={`transition-all duration-1000 ${mounted ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                        }`}
+                >
+                    <div className="relative max-w-3xl mx-auto text-center">
+                        <div className="relative    p-10 md:p-14  ">
+                            <div className="inline-flex items-center gap-3 md:gap-4 px-6 md:px-8 py-3 rounded-full  shadow-lg mb-8">
+                                <p className="text-white font-bold text-lg md:text-xl">Developed By</p>
+                            </div>
+
+                            {/* Clean Logo Section */}
+                            <div className="flex justify-center mb-8">
+                                <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+                                    <Image
+                                        src={goannyLogo}
+                                        alt="Goanny Logo"
+                                        width={250}
+                                        height={100}
+                                        className="w-48 md:w-60 lg:w-72 h-auto object-contain"
+                                        priority
+                                    />
                                 </div>
+                            </div>
+
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-300 mb-4">
+                                Goanny Technologies Pvt. Ltd.
+                            </h2>
+                            <p className="text-xl md:text-2xl text-white/90 font-medium">
+                                तंत्रज्ञान भागीदार (Technology Partner)
+                            </p>
+                            <div className="mt-6 h-1.5 w-40 md:w-52 mx-auto bg-gradient-to-r from-emerald-500 via-amber-500 to-orange-500 rounded-full shadow-lg"></div>
+
+                            <div className="flex justify-center gap-4 mt-8 text-3xl md:text-4xl">
+                                <span className="animate-bounce">✨</span>
+                                <span className="animate-bounce delay-150">⭐</span>
+                                <span className="animate-bounce delay-300">✨</span>
                             </div>
                         </div>
                     </div>
-
-                    {/* Bottom accent line */}
-                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 h-1 w-3/4 bg-gradient-to-r from-transparent via-amber-400 to-transparent rounded-full"></div>
                 </div>
+
+                {/* 🙏 Special Thanks */}
+
             </div>
         </div>
     )

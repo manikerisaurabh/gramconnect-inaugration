@@ -72,9 +72,6 @@ export default function DownloadPage() {
 
                         {/* Instructions */}
                         <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-4 sm:px-6 md:px-8 py-4 md:py-6 border border-white/30 max-w-xl">
-                            <p className="text-center text-white font-bold mb-2 text-base sm:text-lg md:text-xl">
-                                📸 अपना स्मार्टफोन कैमरा दिखाएं
-                            </p>
                             <div className="h-px bg-white/30 my-3"></div>
                             <p className="text-center text-white/80 text-sm sm:text-base md:text-lg">
                                 Scan with your smartphone camera to download the app
@@ -127,16 +124,21 @@ export default function DownloadPage() {
                         </div>
                     </div>
 
-                    {/* CTA Button */}
+                    {/* CTA Button with Play Store Link */}
                     <div className={`text-center transition-all duration-700 delay-500 ${animated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-                        <button className="relative group bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold py-4 sm:py-5 md:py-6 px-8 sm:px-12 md:px-16 rounded-full transition-all duration-300 transform hover:scale-110 shadow-2xl text-base sm:text-lg md:text-xl uppercase tracking-wide overflow-hidden">
-                            {/* Button glow effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-amber-300 to-orange-500 opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"></div>
-                            <span className="relative flex items-center gap-2 md:gap-3">
-                                <span className="text-xl md:text-2xl">📱</span>
-                                QR कोड स्कैन करा
-                            </span>
-                        </button>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.garmconnect"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <button className="relative group bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold py-4 sm:py-5 md:py-6 px-8 sm:px-12 md:px-16 rounded-full transition-all duration-300 transform hover:scale-110 shadow-2xl text-base sm:text-lg md:text-xl uppercase tracking-wide overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-amber-300 to-orange-500 opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-xl"></div>
+                                <span className="relative flex items-center gap-2 md:gap-3">
+                                    <span className="text-xl md:text-2xl">📱</span>
+                                    ॲप डाउनलोड करा
+                                </span>
+                            </button>
+                        </a>
 
                         <p className="text-white/70 text-xs sm:text-sm md:text-base mt-5 md:mt-6 px-4">
                             किंवा सीधे App Store / Play Store शोधा{" "}
